@@ -1,0 +1,353 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Intern\\work_event\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\models\\eventdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\models\\eventdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\models\\sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\models\\sinhvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\company\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\company\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\company\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\company\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\event\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\event\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\contact\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\contact\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\company\\addjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\company\\addjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\shared\\_layout_work_event.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\shared\\_layout_work_event.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\models\\vieclam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\models\\vieclam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|d:\\intern\\work_event\\work_event\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC3C8253-850E-420A-B84C-E4D28E3AC72E}|work_event\\work_event.csproj|solutionrelative:work_event\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-10T01:29:50.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SinhVien.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Models\\SinhVien.cs",
+              "RelativeDocumentMoniker": "work_event\\Models\\SinhVien.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Models\\SinhVien.cs",
+              "RelativeToolTip": "work_event\\Models\\SinhVien.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA3wB8AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T01:29:13.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "work_event\\Controllers\\CompanyController.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Controllers\\CompanyController.cs",
+              "RelativeToolTip": "work_event\\Controllers\\CompanyController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwDYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T01:19:17.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Program.cs",
+              "RelativeDocumentMoniker": "work_event\\Program.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Program.cs",
+              "RelativeToolTip": "work_event\\Program.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T01:16:04.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Event\\Index.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Event\\Index.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Event\\Index.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Event\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAACUAAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-10T01:12:28.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Success.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Contact\\Success.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Contact\\Success.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Contact\\Success.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Contact\\Success.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T17:12:57.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Contact\\Index.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Contact\\Index.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Contact\\Index.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Contact\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T17:12:07.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Controllers\\ContactController.cs",
+              "RelativeDocumentMoniker": "work_event\\Controllers\\ContactController.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Controllers\\ContactController.cs",
+              "RelativeToolTip": "work_event\\Controllers\\ContactController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwFgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T17:10:42.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventDbContext.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Models\\EventDbContext.cs",
+              "RelativeDocumentMoniker": "work_event\\Models\\EventDbContext.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Models\\EventDbContext.cs",
+              "RelativeToolTip": "work_event\\Models\\EventDbContext.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAALIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T17:10:09.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Contact.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Models\\Contact.cs",
+              "RelativeDocumentMoniker": "work_event\\Models\\Contact.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Models\\Contact.cs",
+              "RelativeToolTip": "work_event\\Models\\Contact.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T17:08:58.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Company\\Index.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Company\\Index.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Company\\Index.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Company\\Index.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAwwF0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T17:06:28.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddJob.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Company\\AddJob.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Company\\AddJob.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Company\\AddJob.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Company\\AddJob.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T17:06:27.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_Layout_work_event.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Shared\\_Layout_work_event.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Shared\\_Layout_work_event.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Shared\\_Layout_work_event.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Shared\\_Layout_work_event.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T16:59:46.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\About\\Index.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\About\\Index.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\About\\Index.cshtml",
+              "RelativeToolTip": "work_event\\Views\\About\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T16:58:16.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AboutController.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Controllers\\AboutController.cs",
+              "RelativeDocumentMoniker": "work_event\\Controllers\\AboutController.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Controllers\\AboutController.cs",
+              "RelativeToolTip": "work_event\\Controllers\\AboutController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowEkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T16:55:58.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ViecLam.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Models\\ViecLam.cs",
+              "RelativeDocumentMoniker": "work_event\\Models\\ViecLam.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Models\\ViecLam.cs",
+              "RelativeToolTip": "work_event\\Models\\ViecLam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T16:51:34.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "View.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Company\\View.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Company\\View.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Company\\View.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Company\\View.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T15:39:33.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "View.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Event\\View.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Event\\View.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Event\\View.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Event\\View.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T15:38:51.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "work_event\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "work_event\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-09T15:18:00.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "D:\\Intern\\work_event\\work_event\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "work_event\\Controllers\\EventController.cs",
+              "ToolTip": "D:\\Intern\\work_event\\work_event\\Controllers\\EventController.cs",
+              "RelativeToolTip": "work_event\\Controllers\\EventController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAkwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T13:35:07.631Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

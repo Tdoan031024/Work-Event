@@ -1,0 +1,151 @@
+﻿@model IEnumerable<work_event.Models.DoanhNghiep>
+@{
+    ViewData["Title"] = "Danh Sách Doanh Nghiệp";
+    Layout = "~/Views/Shared/_Layout_work_event.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="css/companies.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div class="container mt-3 pt-2">
+    <div class="filter-section">
+        <form id="filterForm" asp-action="Index" method="get">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="filter-group">
+                        <label for="search">Tìm kiếm doanh nghiệp</label>
+                        <input type="text" id="search" name="search" class="form-control" placeholder="Nhập tên doanh nghiệp..." value="@ViewBag.Search" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="filter-group">
+                        <label for="linhVuc">Lĩnh vực</label>
+                        <select id="linhVuc" name="linhVuc" class="form-control">
+                            <option value="">Tất cả lĩnh vực</option>
+                            @foreach (var lv in ViewBag.LinhVucList)
+                            {
+                                <option value="@lv.Id" selected="@(ViewBag.LinhVuc == lv.Id ? "selected" : "")">@lv.TenLinhVuc</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="filter-group">
+                        <label for="quyMo">Quy mô</label>
+                        <select id="quyMo" name="quyMo" class="form-control">
+                            <option value="">Tất cả quy mô</option>
+                            <option value="Nhỏ" selected="@(ViewBag.QuyMo == "Nhỏ" ? "selected" : "")">Nhỏ</option>
+                            <option value="Vừa" selected="@(ViewBag.QuyMo == "Vừa" ? "selected" : "")">Vừa</option>
+                            <option value="Lớn" selected="@(ViewBag.QuyMo == "Lớn" ? "selected" : "")">Lớn</option>
+                            <option value="Rất lớn" selected="@(ViewBag.QuyMo == "Rất lớn" ? "selected" : "")">Rất lớn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-end">
+                    <button type="submit" class="btn btn-primary btn-filter">Lọc</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetFilter()">Xóa lọc</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row company-list-container">
+        @if (Model.Any())
+        {
+            foreach (var company in Model)
+            {
+                <div class="col-12 col-md-6 mb-4 d-flex align-items-stretch">
+                    <div class="card company-list w-100">
+                        <div class="d-flex">
+                            <div class="logo-container">
+                                @if (!string.IsNullOrEmpty(company.Logo))
+                                {
+                                    <img src="images/companies_logo/@company.Logo" alt="@company.TenCongTy" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/uploads/default_company.png" alt="Logo mặc định" />
+                                }
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div class="company-info">
+                                    <h3>@company.TenCongTy</h3>
+                                    <p><i class="fa fa-map-marker"></i> @company.DiaChi</p>
+                                    <p><i class="fa fa-phone"></i> @company.SoDienThoai</p>
+                                    <p><i class="fa fa-envelope"></i> @company.Email</p>
+                                    <p><i class="fa fa-globe"></i> <a href="@company.Website" target="_blank">@company.Website</a></p>
+                                    <div class="mt-2">
+                                        <span class="industry">@(company.LinhVuc?.TenLinhVuc)</span>
+                                        <span class="size">@company.QuyMo</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end align-items-center mt-3">
+                                    @if (company.Id > 0)
+                                    {
+                                        <a href="@Url.Action("View", "Company", new { id = company.Id })" class="btn btn-primary">Xem chi tiết</a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-danger">ID không hợp lệ</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-md-12">
+                <div class="alert alert-info">Không tìm thấy doanh nghiệp nào phù hợp.</div>
+            </div>
+        }
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mt-4">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, linhVuc = ViewBag.LinhVuc, quyMo = ViewBag.QuyMo, page = i })">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function resetFilter() {
+            $('#search').val('');
+            $('#linhVuc').val('');
+            $('#quyMo').val('');
+            window.location.href = '@Url.Action("Index")';
+        }
+
+        $(document).ready(function () {
+            $('#filterForm').submit(function (e) {
+                e.preventDefault();
+                window.location.href = '@Url.Action("Index")?search=' + encodeURIComponent($('#search').val()) + '&linhVuc=' + $('#linhVuc').val() + '&quyMo=' + encodeURIComponent($('#quyMo').val());
+            });
+
+            $('#linhVuc, #quyMo').change(function () {
+                $('#filterForm').submit();
+            });
+
+            let searchTimeout;
+            $('#search').keyup(function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(function () {
+                    $('#filterForm').submit();
+                }, 500);
+            });
+        });
+    </script>
+}

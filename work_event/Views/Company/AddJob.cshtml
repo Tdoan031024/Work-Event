@@ -1,0 +1,125 @@
+﻿@model work_event.Models.ViecLam
+@{
+    ViewData["Title"] = "Thêm Việc Làm Mới";
+    Layout = "~/Views/Shared/_Layout_work_event.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/add_job.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card edit-card">
+                <div class="edit-header">
+                    <h3>Thêm Việc Làm Mới</h3>
+                </div>
+                <div class="card-body edit-info">
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+                    }
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                    }
+                    <form id="addJobForm" asp-action="AddJob" method="post">
+                        <div class="form-group mb-3">
+                            <label asp-for="TieuDe" class="form-label">Tiêu đề <span class="text-danger">*</span></label>
+                            <input asp-for="TieuDe" class="form-control" required />
+                            <span asp-validation-for="TieuDe" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="MoTa" class="form-label">Mô tả</label>
+                            <textarea asp-for="MoTa" class="form-control" rows="5"></textarea>
+                            <span asp-validation-for="MoTa" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="YeuCau" class="form-label">Yêu cầu</label>
+                            <textarea asp-for="YeuCau" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="YeuCau" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ChuyenNganh" class="form-label">Chuyên ngành</label>
+                            <input asp-for="ChuyenNganh" class="form-control" />
+                            <span asp-validation-for="ChuyenNganh" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="KinhNghiem" class="form-label">Kinh nghiệm</label>
+                            <input asp-for="KinhNghiem" class="form-control" />
+                            <span asp-validation-for="KinhNghiem" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="DiaDiem" class="form-label">Địa điểm</label>
+                            <input asp-for="DiaDiem" class="form-control" />
+                            <span asp-validation-for="DiaDiem" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Luong" class="form-label">Lương</label>
+                            <input asp-for="Luong" class="form-control" />
+                            <span asp-validation-for="Luong" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="HanNop" class="form-label">Hạn nộp <span class="text-danger">*</span></label>
+                            <input asp-for="HanNop" class="form-control" type="date" required />
+                            <span asp-validation-for="HanNop" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="SoLuong" class="form-label">Số lượng <span class="text-danger">*</span></label>
+                            <input asp-for="SoLuong" class="form-control" type="number" min="1" required />
+                            <span asp-validation-for="SoLuong" class="invalid-feedback"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="TrangThai" class="form-label">Trạng thái</label>
+                            <select asp-for="TrangThai" class="form-control">
+                                <option value="true">Đang tuyển</option>
+                                <option value="false">Đã đóng</option>
+                            </select>
+                            <span asp-validation-for="TrangThai" class="invalid-feedback"></span>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-custom">Thêm việc làm</button>
+                            <a href="@Url.Action("Profile", "Account")" class="btn btn-secondary ms-2">Hủy</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $('#addJobForm').on('submit', function (e) {
+                let isValid = true;
+                let tieuDe = $('#TieuDe');
+                let hanNop = $('#HanNop');
+                let soLuong = $('#SoLuong');
+
+                tieuDe.removeClass('is-invalid');
+                hanNop.removeClass('is-invalid');
+                soLuong.removeClass('is-invalid');
+
+                if (!tieuDe.val().trim()) {
+                    tieuDe.addClass('is-invalid');
+                    isValid = false;
+                }
+                if (!hanNop.val()) {
+                    hanNop.addClass('is-invalid');
+                    isValid = false;
+                }
+                if (!soLuong.val() || soLuong.val() < 1) {
+                    soLuong.addClass('is-invalid');
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+}

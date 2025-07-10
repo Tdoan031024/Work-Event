@@ -1,0 +1,58 @@
+﻿@model work_event.Models.Event
+@{
+    ViewData["Title"] = Model.Event1;
+    Layout = "~/Views/Shared/_Layout_work_event.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/event_view.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div class="container mt-5 pt-3">
+    <h1>@Model.Event1</h1>
+    <div class="event-detail">
+        <div class="event-info">
+            <h3>Thông tin sự kiện</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="info-item">
+                        <i class="fa fa-map-marker"></i> <strong>Địa điểm:</strong> @Model.Venue?.Venue1 (@Model.Venue?.Address)
+                    </div>
+                    <div class="info-item">
+                        <i class="fa fa-calendar"></i> <strong>Lịch:</strong> @Model.Schedule.ToString("dd/MM/yyyy HH:mm")
+                    </div>
+                    <div class="info-item">
+                        <i class="fa fa-users"></i> <strong>Sức chứa:</strong> @Model.AudienceCapacity
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-item">
+                        <i class="fa fa-money-bill"></i> <strong>Chi phí:</strong> @(Model.Amount?.ToString("N2") ?? "Miễn phí")
+                    </div>
+                    <div class="info-item">
+                        <i class="fa fa-image"></i> <strong>Banner:</strong>
+                        @if (!string.IsNullOrEmpty(Model.Banner))
+                        {
+                            <img src="~/Assets/images/events/@Model.Banner" alt="@Model.Event1" class="event-banner" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="event-description mt-4">
+            <h3>Mô tả</h3>
+            <div class="description-content">
+                @Html.Raw(Model.Description?.Replace("\n", "<br />"))
+            </div>
+        </div>
+        <div class="back-btn mt-4">
+            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                <i class="fa fa-arrow-left"></i> Quay lại danh sách
+            </a>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+}

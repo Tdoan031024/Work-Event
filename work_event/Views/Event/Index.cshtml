@@ -1,0 +1,54 @@
+﻿@model IEnumerable<work_event.Models.Event>
+@{
+    ViewData["Title"] = "Danh Sách Sự Kiện";
+    Layout = "~/Views/Shared/_Layout_work_event.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="css/event.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<div class="container mt-5 pt-3">
+    <h1>Danh Sách Sự Kiện</h1>
+    <div class="row">
+        @if (Model.Any())
+        {
+            foreach (var evt in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@evt.Event1</h5>
+                            <p class="card-text">@evt.Description</p>
+                            <div class="event-banner">
+                                @if (!string.IsNullOrEmpty(@evt.Banner))
+                                {
+                                    <img src="images/Event/@evt.Banner" alt="@evt.Description" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/Event/default_company.png" alt="Logo mặc định" />
+                                }
+                            </div>
+                            <p><i class="fa fa-calendar"></i> <strong>Lịch:</strong> @evt.Schedule.ToString("dd/MM/yyyy HH:mm")</p>
+                            <p><i class="fa fa-map-marker"></i> <strong>Địa điểm:</strong> @evt.Venue?.Venue1 (@evt.Venue?.Address)</p>
+                            <p><i class="fa fa-users"></i> <strong>Sức chứa:</strong> @evt.AudienceCapacity</p>
+                            <p><i class="fa fa-money-bill"></i> <strong>Chi phí:</strong> @(evt.Amount?.ToString("N2") ?? "Miễn phí")</p>
+                            <a href="@Url.Action("View", "Event", new { id = evt.Id })" class="btn btn-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info">Không tìm thấy sự kiện nào.</div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+}
