@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using System;
 
 namespace work_event.Controllers
 {
@@ -21,28 +22,32 @@ namespace work_event.Controllers
         public async Task<IActionResult> Index(string search = "", int? linhVuc = null, string quyMo = "", int page = 1, int pageSize = 6)
         {
             var query = _context.DoanhNghieps
+                .AsNoTracking()
                 .Include(d => d.LinhVuc)
-                .AsQueryable();
-
-            if (!string.IsNullOrEmpty(search))
-            {
-                query = query.Where(d => d.TenCongTy.Contains(search));
-            }
-            if (linhVuc.HasValue)
-            {
-                query = query.Where(d => d.LinhVucId == linhVuc);
-            }
-            if (!string.IsNullOrEmpty(quyMo))
-            {
-                query = query.Where(d => d.QuyMo == quyMo);
-            }
-
-            query = query.OrderBy(d => d.TenCongTy);
+                .Where(d =>
+                    (string.IsNullOrEmpty(search) || d.TenCongTy.Contains(search)) &&
+                    (!linhVuc.HasValue || d.LinhVucId == linhVuc) &&
+                    (string.IsNullOrEmpty(quyMo) || d.QuyMo == quyMo)
+                );
 
             var totalCompanies = await query.CountAsync();
+
             var companies = await query
+                .OrderBy(d => d.TenCongTy)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
+                .Select(d => new CompanyListViewModel
+                {
+                    Id = d.Id,
+                    TenCongTy = d.TenCongTy,
+                    DiaChi = d.DiaChi,
+                    Email = d.Email,
+                    SoDienThoai = d.SoDienThoai,
+                    Logo = d.Logo,
+                    QuyMo = d.QuyMo,
+                    Website = d.Website,
+                    LinhVuc = d.LinhVuc != null ? d.LinhVuc.TenLinhVuc : ""
+                })
                 .ToListAsync();
 
             ViewBag.LinhVucList = await _context.LinhVucs.OrderBy(l => l.TenLinhVuc).ToListAsync();
@@ -76,29 +81,34 @@ namespace work_event.Controllers
             return View(company);
         }
 
-        // GET: /Companies/ViewJob/{id}
-        [Authorize]
+        // GET: /Company/ViewJob/{id}
         public async Task<IActionResult> ViewJob(int id)
         {
-            var userRole = User.IsInRole("DoanhNghiep") ? "doanh_nghiep" : User.IsInRole("SinhVien") ? "sinh_vien" : null;
-            if (userRole == null)
-            {
-                TempData["ErrorMessage"] = "Vui lòng đăng nhập để xem chi tiết việc làm.";
-                return RedirectToAction("Login", "Account");
-            }
-
-            var doanhNghiepId = userRole == "doanh_nghiep" ? int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0") : (int?)null;
-
             var job = await _context.ViecLams
-                .Where(v => v.Id == id && (doanhNghiepId == null || v.DoanhNghiepId == doanhNghiepId))
-                .FirstOrDefaultAsync();
+                .Include(v => v.DoanhNghiep)
+                .FirstOrDefaultAsync(v => v.Id == id);
 
             if (job == null)
-            {
                 return NotFound();
+
+            // Lấy thông tin sinh viên nếu đã đăng nhập (giả sử bạn có hệ thống đăng nhập)
+            SinhVien? sinhVien = null;
+            if (User.Identity.IsAuthenticated && User.IsInRole("SinhVien"))
+            {
+                var email = User.Identity.Name;
+                sinhVien = await _context.SinhViens.FirstOrDefaultAsync(sv => sv.Email == email);
             }
 
-            ViewBag.UserRole = userRole;
+            // Việc làm tương tự (cùng chuyên ngành hoặc lĩnh vực)
+            var similarJobs = await _context.ViecLams
+                .Where(v => v.Id != id && v.ChuyenNganh == job.ChuyenNganh)
+                .OrderByDescending(v => v.NgayTao)
+                .Take(4)
+                .ToListAsync();
+
+            ViewBag.SinhVien = sinhVien;
+            ViewBag.SimilarJobs = similarJobs;
+
             return View(job);
         }
 

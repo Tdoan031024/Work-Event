@@ -4,89 +4,102 @@
     Layout = "~/Views/Shared/_Layout_work_event.cshtml";
 }
 <head>
-    <link rel="stylesheet" href="css/view_company.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/companies.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <div class="container mt-5 pt-3">
-    <div class="company-detail">
-        <div class="company-header">
-            <div>
+    <div class="company-card shadow-sm p-4 mb-4 animate__animated animate__fadeIn">
+        <div class="row align-items-center mb-4">
+            <div class="col-12 col-md-3 text-center mb-3 mb-md-0">
                 @if (!string.IsNullOrEmpty(Model.Logo))
                 {
-                    <img src="images/companies_logo/@Model.Logo" alt="@Model.TenCongTy" class="company-logo" />
+                    <div class="company-logo-wrapper mx-auto">
+                        <img src="~/images/companies_logo/@Model.Logo" alt="@Model.TenCongTy" class="company-logo-img" />
+                    </div>
                 }
                 else
                 {
-                    <img src="~/assets/uploads/default_company.png" alt="Logo mặc định" class="company-logo" />
+                    <div class="company-logo-wrapper mx-auto">
+                        <img src="~/assets/uploads/default_company.png" alt="Logo mặc định" class="company-logo-img" />
+                    </div>
                 }
             </div>
-            <div class="company-title">
-                <h1>@Model.TenCongTy</h1>
-                <div>
-                    <span class="industry">@(Model.LinhVuc?.TenLinhVuc)</span>
-                    <span class="size">@Model.QuyMo</span>
-                </div>
-            </div>
-        </div>
-        <div class="company-info">
-            <h3>Thông tin doanh nghiệp</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="info-item">
-                        <i class="fa fa-map-marker"></i> <strong>Địa chỉ:</strong> @Model.DiaChi
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-phone"></i> <strong>Điện thoại:</strong> @Model.SoDienThoai
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-envelope"></i> <strong>Email:</strong> @Model.Email
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="info-item">
-                        <i class="fa fa-globe"></i> <strong>Website:</strong>
-                        <a href="@Model.Website" target="_blank">@Model.Website</a>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-calendar"></i> <strong>Ngày tham gia:</strong> @Model.NgayTao.ToString("dd/MM/yyyy")
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="company-description">
-            <h3 class="section-title">Giới thiệu</h3>
-            <div class="description-content">
-                @Html.Raw(Model.MoTa?.Replace("\n", "<br />"))
-            </div>
-        </div>
-        @* @if (ViewBag.Jobs != null && ViewBag.Jobs.Any())
-        {
-            <div class="company-jobs mt-5">
-                <h3 class="section-title">Vị trí đang tuyển dụng</h3>
-                <div class="list-group">
-                    @foreach (var job in ViewBag.Jobs)
+            <div class="col-12 col-md-6 text-center text-md-start">
+                <h1 class="company-name mb-2">@Model.TenCongTy</h1>
+                <div class="mb-2">
+                    <span class="badge bg-primary me-2" style="font-size:1em;">@Model.LinhVuc?.TenLinhVuc</span>
+                    @if (!string.IsNullOrEmpty(Model.QuyMo))
                     {
-                        <a href="@Url.Action("ViewJob", new { id = job.Id })" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">@job.TieuDe</h5>
-                                <small>@job.NgayTao.ToString("dd/MM/yyyy")</small>
-                            </div>
-                            <p class="mb-1">@job.MoTa</p>
-                            <small><i class="fa fa-map-marker"></i> @job.DiaDiem</small>
-                        </a>
+                        <span class="badge bg-info text-dark" style="font-size:1em;">@Model.QuyMo</span>
                     }
                 </div>
             </div>
-        } *@
-        <div class="back-btn">
-            <a href="@Url.Action("Index")" class="btn btn-secondary">
-                <i class="fa fa-arrow-left"></i> Quay lại danh sách
-            </a>
-            <a href="@Url.Action("Contact", new { id = Model.Id })" class="btn btn-contact">
-                <i class="fa fa-envelope"></i> Liên hệ ứng tuyển
-            </a>
+            <div class="col-12 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                <a href="@Url.Action("Index")" class="btn btn-secondary me-2 mb-2 mb-md-0"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                <a href="@Url.Action("Contact", new { id = Model.Id })" class="btn btn-detail"><i class="fa fa-envelope"></i> Liên hệ</a>
+            </div>
         </div>
+        <div class="row mb-4">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="company-info-list">
+                    <div class="mb-2"><i class="fa fa-map-marker-alt me-2"></i> <strong>Địa chỉ:</strong> @Model.DiaChi</div>
+                    <div class="mb-2"><i class="fa fa-envelope me-2"></i> <strong>Email:</strong> @Model.Email</div>
+                    <div class="mb-2"><i class="fa fa-phone me-2"></i> <strong>Điện thoại:</strong> @Model.SoDienThoai</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="company-info-list">
+                    <div class="mb-2"><i class="fa fa-globe me-2"></i> <strong>Website:</strong> <a href="@Model.Website" target="_blank" rel="noopener">@Model.Website</a></div>
+                    <div class="mb-2"><i class="fa fa-calendar me-2"></i> <strong>Ngày tham gia:</strong> @Model.NgayTao.ToString("dd/MM/yyyy")</div>
+                </div>
+            </div>
+        </div>
+        <div class="company-description p-4 rounded-4 bg-light border mb-2">
+            <h3 class="section-title mb-3" style="font-size:1.25rem;">Giới thiệu</h3>
+            <div class="description-content" style="font-size:1.08em;">
+                @Html.Raw(Model.MoTa?.Replace("\n", "<br />"))
+            </div>
+        </div>
+
+        @if (ViewBag.Jobs != null && ViewBag.Jobs.Count > 0)
+        {
+            <div class="company-jobs mt-5">
+                <h3 class="section-title mb-3" style="font-size:1.18rem;">Vị trí đang tuyển dụng</h3>
+                <div class="row g-4">
+                    @foreach (var job in ViewBag.Jobs)
+                    {
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="company-card shadow-sm h-100 animate__animated animate__fadeInUp position-relative job-card-custom" style="border-radius: 20px; border: 1.5px solid #e3eaf5;">
+                                <div class="company-card-inner d-flex flex-column p-4 h-100">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fa fa-briefcase fa-lg me-2 text-primary"></i>
+                                        <h5 class="fw-bold mb-0" style="color:#2563eb; font-size:1.15rem;">@job.TieuDe</h5>
+                                    </div>
+                                    <div class="mb-2 d-flex flex-wrap align-items-center gap-2">
+                                        <span class="badge bg-light text-secondary border"><i class="fa fa-calendar me-1"></i> @job.NgayTao.ToString("dd/MM/yyyy")</span>
+                                        @if (job.HanNop != null)
+                                        {
+                                            <span class="badge bg-light text-danger border"><i class="fa fa-clock me-1"></i> Hạn: @job.HanNop?.ToString("dd/MM/yyyy")</span>
+                                        }
+                                        <span class="badge bg-light text-info border"><i class="fa fa-users me-1"></i> SL: @job.SoLuong</span>
+                                    </div>
+                                    <div class="mb-2 text-secondary small">
+                                        <i class="fa fa-map-marker-alt me-1"></i> @job.DiaDiem
+                                    </div>
+                                    <div class="mb-3 p-2 rounded-3" style="background:#f4f8fb; font-size:1em; min-height:56px;">
+                                        @Html.Raw(job.MoTa?.Length > 100 ? job.MoTa.Substring(0, 100) + "..." : job.MoTa)
+                                    </div>
+                                    <div class="mt-auto d-flex justify-content-end">
+                                        <a href="@Url.Action("ViewJob", "Company", new { id = job.Id })" class="btn btn-detail btn-sm px-3 py-2">Xem chi tiết <i class="fa fa-arrow-right ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
     </div>
 </div>

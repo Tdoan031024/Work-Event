@@ -2,68 +2,197 @@
 @{
     ViewData["Title"] = Model.TieuDe;
     Layout = "~/Views/Shared/_Layout_work_event.cshtml";
+    var doanhNghiep = Model.DoanhNghiep;
+    var sinhVien = ViewBag.SinhVien as work_event.Models.SinhVien;
+    var similarJobs = ViewBag.SimilarJobs as List<work_event.Models.ViecLam>;
 }
 <head>
-    <link rel="stylesheet" href="~/css/view_job.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/companies.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <div class="container mt-5 pt-3">
-    <h1>@Model.TieuDe</h1>
-    <div class="job-detail">
-        <div class="job-info">
-            <h3>Thông tin công việc</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="info-item">
-                        <i class="fa fa-map-marker"></i> <strong>Địa điểm:</strong> @Model.DiaDiem
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-money-bill"></i> <strong>Lương:</strong> @Model.Luong
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-calendar"></i> <strong>Hạn nộp:</strong> @Model.HanNop?.ToString("dd/MM/yyyy")
+    <div class="company-card shadow-sm p-4 mb-4 animate__animated animate__fadeIn">
+        <div class="row align-items-center mb-4">
+            <div class="col-12 col-md-2 text-center mb-3 mb-md-0">
+                <img src="~/images/companies_logo/@doanhNghiep?.Logo" alt="@doanhNghiep?.TenCongTy" class="img-fluid rounded bg-light border" style="width:90px;height:90px;object-fit:contain;" />
+            </div>
+            <div class="col-12 col-md-7">
+                <h2 class="mb-1 fw-bold" style="color:#2563eb; font-size:2rem;">@Model.TieuDe</h2>
+                <div class="mb-2">
+                    <a href="@Url.Action("View", "Company", new { id = doanhNghiep?.Id })" class="fw-bold text-decoration-none" style="font-size:1.1rem;">@doanhNghiep?.TenCongTy</a>
+                    <span class="badge bg-primary ms-2">@Model.ChuyenNganh</span>
+                    @if (doanhNghiep?.LinhVuc != null)
+                    {
+                        <span class="badge bg-info ms-1">@doanhNghiep.LinhVuc.TenLinhVuc</span>
+                    }
+                    @if (!string.IsNullOrEmpty(doanhNghiep?.QuyMo))
+                    {
+                        <span class="badge bg-secondary ms-1">@doanhNghiep.QuyMo</span>
+                    }
+                </div>
+                <div class="mt-2 text-secondary small d-flex flex-wrap gap-3">
+                    <span><i class="fa fa-calendar me-1"></i> Đăng: @Model.NgayTao.ToString("dd/MM/yyyy")</span>
+                    <span><i class="fa fa-clock me-1"></i> Hạn nộp: @Model.HanNop?.ToString("dd/MM/yyyy")</span>
+                    <span><i class="fa fa-users me-1"></i> Số lượng: @Model.SoLuong</span>
+                    <span><i class="fa fa-money-bill me-1"></i> @(string.IsNullOrEmpty(Model.Luong) ? "Thỏa thuận" : Model.Luong)</span>
+                    <span><i class="fa fa-map-marker-alt me-1"></i> @Model.DiaDiem</span>
+                    <span><i class="fa fa-briefcase me-1"></i> Kinh nghiệm: @Model.KinhNghiem</span>
+                    <span><i class="fa fa-check-circle me-1"></i> @(Model.TrangThai ? "Đang tuyển" : "Đã đóng")</span>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                <button class="btn btn-detail mb-2 w-100" data-bs-toggle="modal" data-bs-target="#applyModal"><i class="fa fa-paper-plane"></i> Ứng tuyển</button>
+                <button class="btn btn-outline-secondary w-100"><i class="fa fa-bookmark"></i> Lưu tin</button>
+            </div>
+        </div>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="company-description p-4 rounded-4 bg-light border mb-2 h-100">
+                    <h4 class="section-title mb-3" style="font-size:1.15rem;"><i class="fa fa-info-circle me-2 text-primary"></i>Mô tả công việc</h4>
+                    <div class="description-content" style="font-size:1.08em;">
+                        @Html.Raw(Model.MoTa?.Replace("\n", "<br />"))
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="info-item">
-                        <i class="fa fa-briefcase"></i> <strong>Chuyên ngành:</strong> @Model.ChuyenNganh
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-clock"></i> <strong>Kinh nghiệm:</strong> @Model.KinhNghiem
-                    </div>
-                    <div class="info-item">
-                        <i class="fa fa-users"></i> <strong>Số lượng:</strong> @Model.SoLuong
+            </div>
+            <div class="col-md-6">
+                <div class="company-description p-4 rounded-4 bg-light border mb-2 h-100">
+                    <h4 class="section-title mb-3" style="font-size:1.15rem;"><i class="fa fa-list-check me-2 text-success"></i>Yêu cầu</h4>
+                    <div class="description-content" style="font-size:1.08em;">
+                        @Html.Raw(Model.YeuCau?.Replace("\n", "<br />"))
                     </div>
                 </div>
             </div>
         </div>
-        <div class="job-description mt-4">
-            <h3>Mô tả công việc</h3>
-            <div class="description-content">
-                @Html.Raw(Model.MoTa?.Replace("\n", "<br />"))
+        <div class="company-description p-4 rounded-4 bg-light border mb-2">
+            <h4 class="section-title mb-3" style="font-size:1.15rem;"><i class="fa fa-gift me-2 text-warning"></i>Phúc lợi</h4>
+            <div class="description-content" style="font-size:1.08em;">
+                (Bổ sung thông tin phúc lợi nếu có)
             </div>
-        </div>
-        <div class="job-requirements mt-4">
-            <h3>Yêu cầu</h3>
-            <div class="description-content">
-                @Html.Raw(Model.YeuCau?.Replace("\n", "<br />"))
-            </div>
-        </div>
-        <div class="back-btn mt-4">
-            <a href="@Url.Action("View", new { id = Model.DoanhNghiepId })" class="btn btn-secondary">
-                <i class="fa fa-arrow-left"></i> Quay lại doanh nghiệp
-            </a>
-            @if (ViewBag.UserRole == "sinh_vien")
-            {
-                <a href="@Url.Action("Contact", new { id = Model.DoanhNghiepId })" class="btn btn-primary">
-                    <i class="fa fa-envelope"></i> Ứng tuyển
-                </a>
-            }
         </div>
     </div>
+    <!-- Modal Ứng tuyển -->
+    <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <form asp-action="ApplyJob" asp-controller="Company" method="post" enctype="multipart/form-data" id="applyJobForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="applyModalLabel">Ứng tuyển vị trí: @Model.TieuDe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Mã số sinh viên</label>
+                                <input type="text" class="form-control" name="MaSoSinhVien" value="@sinhVien?.Id" readonly required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Họ tên</label>
+                                <input type="text" class="form-control" name="HoTen" value="@sinhVien?.HoTen" readonly required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="Email" value="@sinhVien?.Email" readonly required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" name="SoDienThoai" value="@sinhVien?.SoDienThoai" readonly required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Địa chỉ</label>
+                                <input type="text" class="form-control" name="DiaChi" value="@sinhVien?.DiaChi" readonly required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Chuyên ngành <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="ChuyenNganh" value="@sinhVien?.ChuyenNganh" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Tải CV (PDF/Word) <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" name="CVFile" accept=".pdf,.doc,.docx" required>
+                                @if (!string.IsNullOrEmpty(sinhVien?.CvPdf))
+                                {
+                                    <div class="mt-2">
+                                        <a href="@sinhVien.CvPdf" target="_blank">Xem CV đã tải lên trước đó</a>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-md-12">
+                                <a href="@Url.Action("Index", "CvGuide")" target="_blank" class="link-primary">Hướng dẫn viết CV</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-detail">Gửi ứng tuyển</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @if (similarJobs != null && similarJobs.Count > 0)
+    {
+        <div class="company-jobs mt-5">
+            <h3 class="section-title mb-3" style="font-size:1.1rem;">Việc làm tương tự</h3>
+            <div class="row g-4">
+                @foreach (var job in similarJobs)
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="company-card shadow-sm h-100 animate__animated animate__fadeInUp position-relative job-card-custom" style="border-radius: 20px; border: 1.5px solid #e3eaf5;">
+                            <div class="company-card-inner d-flex flex-column p-4 h-100">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fa fa-briefcase fa-lg me-2 text-primary"></i>
+                                    <h5 class="fw-bold mb-0" style="color:#2563eb; font-size:1.05rem;">@job.TieuDe</h5>
+                                </div>
+                                <div class="mb-2 d-flex flex-wrap align-items-center gap-2">
+                                    <span class="badge bg-light text-secondary border"><i class="fa fa-calendar me-1"></i> @job.NgayTao.ToString("dd/MM/yyyy")</span>
+                                    @if (job.HanNop != null)
+                                    {
+                                        <span class="badge bg-light text-danger border"><i class="fa fa-clock me-1"></i> Hạn: @job.HanNop?.ToString("dd/MM/yyyy")</span>
+                                    }
+                                    <span class="badge bg-light text-info border"><i class="fa fa-users me-1"></i> SL: @job.SoLuong</span>
+                                </div>
+                                <div class="mb-2 text-secondary small">
+                                    <i class="fa fa-map-marker-alt me-1"></i> @job.DiaDiem
+                                </div>
+                                <div class="mb-3 p-2 rounded-3" style="background:#f4f8fb; font-size:1em; min-height:56px;">
+                                    @Html.Raw(job.MoTa?.Length > 100 ? job.MoTa.Substring(0, 100) + "..." : job.MoTa)
+                                </div>
+                                <div class="mt-auto d-flex justify-content-end">
+                                    <a href="@Url.Action("ViewJob", "Company", new { id = job.Id })" class="btn btn-detail btn-sm px-3 py-2">Xem chi tiết <i class="fa fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
 </div>
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#applyJobForm').on('submit', function (e) {
+                let valid = true;
+                $(this).find('input[required],textarea[required],select[required]').each(function () {
+                    if (!$(this).val()) {
+                        $(this).addClass('is-invalid');
+                        valid = false;
+                    } else {
+                        $(this).removeClass('is-invalid');
+                    }
+                });
+                if (!valid) {
+                    e.preventDefault();
+                    alert('Vui lòng nhập đầy đủ thông tin bắt buộc trước khi gửi ứng tuyển!');
+                }
+            });
+            $('#applyJobForm input, #applyJobForm textarea').on('input', function () {
+                if ($(this).val()) {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
 }

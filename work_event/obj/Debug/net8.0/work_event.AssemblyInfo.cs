@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("work_event")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f484bc5f8afcb7697c1d351a595d92e45caec594")]
 [assembly: System.Reflection.AssemblyProductAttribute("work_event")]
 [assembly: System.Reflection.AssemblyTitleAttribute("work_event")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
